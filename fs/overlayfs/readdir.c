@@ -915,14 +915,14 @@ static int ovl_dir_open(struct inode *inode, struct file *file)
 	od = kzalloc(sizeof(struct ovl_dir_file), GFP_KERNEL);
 	if (!od)
 		return -ENOMEM;
-ifdef CONFIG_KSU_SUSFS_SUS_OVERLAYFS
+#ifdef CONFIG_KSU_SUSFS_SUS_OVERLAYFS
 ovl_path_lowerdata(file->f_path.dentry, &realpath);
 if (likely(realpath.mnt && realpath.dentry)) {
 	// We still use '__OVL_PATH_UPPER' here which should be fine.  
 	type = __OVL_PATH_UPPER;
 	goto bypass_orig_flow;
 }
-endif
+#endif
 
 	type = ovl_path_real(file->f_path.dentry, &realpath);
 #ifdef CONFIG_KSU_SUSFS_SUS_OVERLAYFS
