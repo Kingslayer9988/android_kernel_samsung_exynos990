@@ -1,3 +1,9 @@
+#ifndef FUSE_SUPER_MAGIC
+
+#define FUSE_SUPER_MAGIC 0x65735546
+
+#endif
+
 #ifndef KSU_SUSFS_DEF_H
 #define KSU_SUSFS_DEF_H
 
