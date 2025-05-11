@@ -1107,13 +1107,12 @@ struct vfsmount *
 vfs_kern_mount(struct file_system_type *type, int flags, const char *name, void *data)
 {
 	struct mount *mnt;
+	struct dentry *root;
 #ifdef CONFIG_KSU_SUSFS_SUS_MOUNT
 	struct mount *m;
 	struct mnt_namespace *mnt_ns;
 	int mnt_id;
 #endif
-
-	struct dentry *root;
 
 	if (!type)
 		return ERR_PTR(-ENODEV);
